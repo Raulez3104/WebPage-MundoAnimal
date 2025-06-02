@@ -8,7 +8,7 @@ const Menubar = () => {
         <li><Link to="/">Inicio</Link></li>
         <li><Link to="/servicios">Servicios</Link></li>
         <li><Link to="/acerca-de">Acerca de</Link></li>
-        <li><Link to="/contactos">Contactos</Link></li>
+        <li><Link to="/contacto">Contactos</Link></li>
       </ul>
     </nav>
   );

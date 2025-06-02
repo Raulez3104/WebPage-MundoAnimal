@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Inicio from './components/Inicio';
+import Servicios from './components/Servicios';
 import AcercaDe from './components/AcercaDe';
+import Contacto from './components/Contacto';
+import InicioVideo from './components/InicioVideo';
 import './App.css';
 
 function App() {
@@ -12,8 +14,11 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<Inicio />} />
+            <Route path="/" element={<InicioVideo />} />
             <Route path="/acerca-de" element={<AcercaDe />} />
+            <Route path="/servicios" element={<Servicios />} />
+            <Route path="/contacto" element={<Contacto />} />
+          
           </Routes>
         </main>
         <Footer />
