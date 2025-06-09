@@ -1,12 +1,31 @@
+import React from 'react';
+import { submitContactForm } from './api';
+
 const Contacto = () => {
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try {
+            const formData = new FormData(e.target as HTMLFormElement);
+            await submitContactForm(formData);
+            alert('Datos enviados correctamente');
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                alert(`Error: ${error.message}`);
+            } else {
+                alert('Ocurrió un error desconocido al enviar el formulario');
+            }
+        }
+    };
+
     return (
         <div className="container mt-4">
             <div className="row justify-content-center">
                 <div className="col-12 col-md-8 col-lg-6">
-                    <div className="card shadow mx-auto mb-4" style={{width:'500px'}}>
+                    <div className="card shadow mx-auto mb-4" style={{ width: '500px' }}>
                         <div className="card-body">
                             <h2 className="text-center mb-4">Contáctanos</h2>
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
                                     <label htmlFor="nombre" className="form-label">Nombre</label>
                                     <input
@@ -14,6 +33,7 @@ const Contacto = () => {
                                         className="form-control"
                                         id="nombre"
                                         name="nombre"
+                                        required
                                     />
                                 </div>
 
@@ -24,6 +44,7 @@ const Contacto = () => {
                                         className="form-control"
                                         id="correo"
                                         name="correo"
+                                        required
                                     />
                                 </div>
 
@@ -44,6 +65,7 @@ const Contacto = () => {
                                         id="mensaje"
                                         name="mensaje"
                                         rows={4}
+                                        required
                                     ></textarea>
                                 </div>
 
