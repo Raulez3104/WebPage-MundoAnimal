@@ -22,7 +22,7 @@ const Contacto = () => {
         <div className="container mt-4">
             <div className="row justify-content-center">
                 <div className="col-12 col-md-8 col-lg-6">
-                    <div className="card shadow mx-auto mb-4" style={{ width: '500px' }}>
+                    <div className="card shadow mx-auto mb-4" style={{ width: '700px', backgroundImage: 'url(/carousel5.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <div className="card-body">
                             <h2 className="text-center mb-4">Contáctanos</h2>
                             <form onSubmit={handleSubmit}>
@@ -49,13 +49,17 @@ const Contacto = () => {
                                 </div>
 
                                 <div className="mb-3">
-                                    <label htmlFor="organizacion" className="form-label">Organización</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="organizacion"
-                                        name="organizacion"
-                                    />
+                                    <label htmlFor="pais" className="form-label">País</label>
+                                    <select id="pais" name="pais" className="form-select" required>
+                                        <option value="">Selecciona un país</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Chile">Bolivia</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="México">México</option>
+                                        <option value="Perú">Perú</option>
+                                        <option value="España">España</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
                                 </div>
 
                                 <div className="mb-3">
@@ -67,6 +71,15 @@ const Contacto = () => {
                                         rows={4}
                                         required
                                     ></textarea>
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="telefono" className="form-label">Teléfono:</label>
+                                    <input
+                                        className="form-control"
+                                        id="telefono"
+                                        name="telefono"
+                                        required
+                                    ></input>
                                 </div>
 
                                 <div className="text-center">

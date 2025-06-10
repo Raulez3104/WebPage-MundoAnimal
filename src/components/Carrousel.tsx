@@ -1,9 +1,8 @@
-import './InicioVideo.css';
-import styles from './InicioVideo.module.css';
- // Puedes incluir estilos adicionales si lo deseas
-const InicioVideo = () => {
+import styles from './Carrousel.module.css';
+
+const Carrousel = () => {
   return (
-    <>
+   <>
     <div className="carousel slide">
       <div className="carousel-inner">
         <div className="carousel-item active">
@@ -19,7 +18,7 @@ const InicioVideo = () => {
           <img className={styles.imagenes} src="/carousel4.jpg" alt="imagen" />
         </div>
         <div className="carousel-item">
-          <img className={styles.imagenes} src="/carousel5.jpg" alt="imagen" />
+          <img className={styles.imagenes}src="/carousel5.jpg" alt="imagen" />
         </div>
       </div>
       <button
@@ -47,6 +46,5 @@ const InicioVideo = () => {
     
     </>
   );
-};
-
-export default InicioVideo;
+}
+export default Carrousel;

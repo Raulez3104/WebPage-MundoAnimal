@@ -33,7 +33,7 @@ dbConnection.connect((err) => {
 
 //Implememtamos un servicio
 app.post("/api/registro", (req, res) => {
-  const { name, email, message } = req.body;
+  const { name, email,pais, message, telefono } = req.body;
   console.log("Registro");
   console.log("Datos recibidos en el servidor como JSON:", req.body);
 
@@ -44,8 +44,8 @@ app.post("/api/registro", (req, res) => {
   }
 
   const query =
-    "INSERT INTO contactos (nombre, email, mensaje) VALUES (?, ?, ?)";
-  dbConnection.query(query, [name, email, message], (error, results) => {
+    "INSERT INTO contactos (nombre, email,pais,mensaje,telefono) VALUES (?, ?, ?, ?, ?)";
+  dbConnection.query(query, [name, email, pais, message, telefono], (error, results) => {
     if (error) {
       console.error("Error al insertar datos en la tabla:", error);
       return res
@@ -61,7 +61,7 @@ app.post("/api/registro", (req, res) => {
 });
 
 app.post("/api/save", (req, res) => {
-  const { nombre, correo, mensaje } = req.body;
+  const { nombre, correo,pais, mensaje ,telefono } = req.body;
   console.log("Registro");
   console.log("Datos recibidos en el servidor como JSON:", req.body);
 
@@ -70,11 +70,11 @@ app.post("/api/save", (req, res) => {
       .status(400)
       .json({ error: "Nombre, email son campos requeridos." });
   }
-  console.log("Datos recibidos:", req.nombre, req.correo, req.mensaje);
+  console.log("Datos recibidos:", req.nombre, req.correo,req.pais, req.mensaje, req.telefono);
 
   const query =
-    "INSERT INTO contactos (nombre, email, mensaje) VALUES (?, ?, ?)";
-  dbConnection.query(query, [nombre, correo, mensaje], (error, results) => {
+    "INSERT INTO contactos (nombre, email,pais,  mensaje, telefono) VALUES (?, ?, ?, ?, ?)";
+  dbConnection.query(query, [nombre, correo, pais, mensaje, telefono], (error, results) => {
     if (error) {
       console.error("Error al insertar datos en la tabla:", error);
       return res

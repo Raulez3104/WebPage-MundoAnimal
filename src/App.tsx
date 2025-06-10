@@ -4,7 +4,8 @@ import Footer from './components/Footer';
 import Servicios from './components/Servicios';
 import AcercaDe from './components/AcercaDe';
 import Contacto from './components/Contacto';
-import InicioVideo from './components/InicioVideo';
+import Carrousel from './components/Carrousel';
+import Chatbot from './components/Chatbot';
 import './App.css';
 
 function App() {
@@ -14,13 +15,14 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<InicioVideo />} />
-            <Route path="/acerca-de" element={<AcercaDe />} />
+            <Route path="/" element={<Carrousel />} />
             <Route path="/servicios" element={<Servicios />} />
             <Route path="/contacto" element={<Contacto />} />
-          
+            <Route path="/acerca-de" element={<AcercaDe />} />
+            <Route path="/acerca-de" element={<AcercaDe />} />
           </Routes>
         </main>
+        <Chatbot />
         <Footer />
       </div>
     </Router>
