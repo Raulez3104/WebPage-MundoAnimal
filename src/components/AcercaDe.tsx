@@ -2,15 +2,20 @@ import './AcercaDe.css';
 
 const AcercaDe = () => {
   return (
-    <div className="acerca-de-container">
+    <div className="contenedores"style={{backgroundColor:"#fefae0"}}>
+      <div className="acerca-de-container">
       <div className="acerca-de-content">
         <div className="acerca-de-text">
           <h2>Acerca de Nosotros</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+           En Mundo Animal, nos dedicamos con pasión al cuidado integral de tus mascotas. Ofrecemos servicios veterinarios especializados para perros, gatos y animales exóticos, siempre con un enfoque profesional, ético y lleno de cariño.
           </p>
           <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Nos encontramos en Av. Circunvalación #80, Zona Norte, y atendemos de lunes a sábado, de 8:00 a 20:00. Estamos aquí para acompañarte en cada etapa de la vida de tu mejor amigo.
+
+          </p>
+          <p>
+            Nuestro equipo está preparado para brindarte atención de urgencias 24/7, así como servicios de vacunación, desparasitación y cirugía menor. Además, entendemos que el bienestar de tu mascota va más allá de lo médico, por eso contamos con peluquería canina y felina atendida por personal capacitado, y te ofrecemos asesoramiento nutricional y planes de vacunación personalizados.
           </p>
         </div>
         <div className="acerca-de-image">
@@ -18,6 +23,9 @@ const AcercaDe = () => {
         </div>
       </div>
     </div>
+
+    </div>
+    
   );
 };
 

@@ -10,13 +10,13 @@ const Footer = () => {
         </div>
         <div className="contact-info">
           <h4>Información de Contacto</h4>
-          <p>📍 Dirección: Av. Principal #123</p>
+          <p>📍 Dirección: Av. Circunvalación #123</p>
           <p>📞 Teléfono: (123) 456-7890</p>
           <p>✉️ Email: info@mundoanimal.com</p>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 Mundo Animal. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Mundo Animal. Todos los derechos reservados.</p>
       </div>
     </footer>
   )

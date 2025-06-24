@@ -5,7 +5,8 @@ import videoSource3 from '../assets/card3video.mp4';
 
 const Servicios = () => {
   return (
-    <div className="container mt-4">
+    <div className="contenedor" style={{backgroundColor:"#fefae0"}}>
+      <div className="container mt-4 ">
       <div className="row">
         <div className="col-4">
           <div className="mb-4">
@@ -23,7 +24,7 @@ const Servicios = () => {
                 <p className="card-text">
                   Brindamos atención médica personalizada para tu mascota, desde chequeos de rutina hasta diagnósticos especializados.
                 </p>
-                <a href="#" className="btn btn-primary">Más Información</a>
+                <a href="#" className="btn btn-primary" style={{backgroundColor:"#d4a373",border:"none"}}>Más Información</a>
               </div>
             </div>
           </div>
@@ -45,7 +46,7 @@ const Servicios = () => {
                 <p className="card-text">
                   Protege a tu mascota con nuestro completo plan de vacunación y control antiparasitario.
                 </p>
-                <a href="#" className="btn btn-primary">Más Información</a>
+                <a href="#" className="btn btn-primary" style={{backgroundColor:"#d4a373",border:"none"}}>Más Información</a>
               </div>
             </div>
           </div>
@@ -67,13 +68,16 @@ const Servicios = () => {
                 <p className="card-text">
                   Ofrecemos una amplia variedad de alimentos balanceados, juguetes, accesorios y productos de higiene.
                 </p>
-                <a href="#" className="btn btn-primary">Más Información</a>
+                <a href="#" className="btn btn-primary" style={{backgroundColor:"#d4a373",border:"none"}}>Más Información</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    </div>
+    
   );
 };
 

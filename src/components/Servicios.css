@@ -33,12 +33,12 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 1rem;
-    background-color: white;
+    background-color: #e9edc9;
     transition: background-color 0.3s ease;
 }
 
 .normal:hover .card-body {
-    background-color: #f8f9fa;
+    background-color: #ccd5ae;
 }
 
 .card-img-top {
@@ -51,4 +51,6 @@
 .normal:hover .card-img-top {
     transform: scale(1.05);
 }
-
+.contenedor{
+    padding: 15px;
+}

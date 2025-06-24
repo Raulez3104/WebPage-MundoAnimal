@@ -19,10 +19,11 @@ const Contacto = () => {
     };
 
     return (
-        <div className="container mt-4">
+        <div className="contenedor"style={{backgroundColor:"#fefae0"}}>
+            <div className="container mt-4">
             <div className="row justify-content-center">
                 <div className="col-12 col-md-8 col-lg-6">
-                    <div className="card shadow mx-auto mb-4" style={{ width: '700px', backgroundImage: 'url(/carousel5.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                    <div className="card shadow mx-auto mb-4" style={{ width: '700px',backgroundColor:" #e9edc9"}}>
                         <div className="card-body">
                             <h2 className="text-center mb-4">Contáctanos</h2>
                             <form onSubmit={handleSubmit}>
@@ -34,6 +35,7 @@ const Contacto = () => {
                                         id="nombre"
                                         name="nombre"
                                         required
+                                        style={{backgroundColor:"#f8edeb"}}
                                     />
                                 </div>
 
@@ -45,12 +47,16 @@ const Contacto = () => {
                                         id="correo"
                                         name="correo"
                                         required
+                                        style={{backgroundColor:"#f8edeb"}}
+
                                     />
                                 </div>
 
                                 <div className="mb-3">
                                     <label htmlFor="pais" className="form-label">País</label>
-                                    <select id="pais" name="pais" className="form-select" required>
+                                    <select id="pais" name="pais" className="form-select" required  
+                                        style={{backgroundColor:"#f8edeb"}}
+                                    >
                                         <option value="">Selecciona un país</option>
                                         <option value="Argentina">Argentina</option>
                                         <option value="Chile">Bolivia</option>
@@ -59,6 +65,7 @@ const Contacto = () => {
                                         <option value="Perú">Perú</option>
                                         <option value="España">España</option>
                                         <option value="Otro">Otro</option>
+                                        
                                     </select>
                                 </div>
 
@@ -70,6 +77,8 @@ const Contacto = () => {
                                         name="mensaje"
                                         rows={4}
                                         required
+                                        style={{backgroundColor:"#f8edeb"}}
+
                                     ></textarea>
                                 </div>
                                 <div className="mb-3">
@@ -79,11 +88,13 @@ const Contacto = () => {
                                         id="telefono"
                                         name="telefono"
                                         required
+                                        style={{backgroundColor:"#f8edeb"}}
+
                                     ></input>
                                 </div>
 
                                 <div className="text-center">
-                                    <button type="submit" className="btn btn-primary">Enviar mensaje</button>
+                                    <button type="submit" className="btn btn-primary" style={{backgroundColor:"#d4a373",border:"none"}}>Enviar mensaje</button>
                                 </div>
                             </form>
                         </div>
@@ -91,6 +102,9 @@ const Contacto = () => {
                 </div>
             </div>
         </div>
+
+        </div>
+        
     );
 };
 

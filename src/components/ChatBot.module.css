@@ -9,7 +9,7 @@
 }
 
 .chatToggleButton {
-  background-color: #0d6efd;
+  background-color: #5e503f;
   color: white;
   border: none;
   border-radius: 50%;
@@ -40,7 +40,7 @@
 }
 
 .chatHeader {
-  background-color: #0d6efd;
+  background-color: #5e503f;
   color: white;
   padding: 10px;
   text-align: center;

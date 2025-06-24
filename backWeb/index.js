@@ -8,6 +8,21 @@ const axios = require('axios');
 const app = express();
 const port = 3000; // Puedes cambiar el puerto si lo deseas
 
+const contextChunks = [
+  "Ofrecemos servicios veterinarios para perros, gatos y animales exóticos.",
+  "Contamos con atención de urgencias 24/7, vacunas, desparasitación y cirugía menor.",
+  "Estamos ubicados en Av. Circunvalación #80, Zona Norte. Horario: Lunes a sábado de 8:00 a 20:00.",
+  "Disponemos de peluquería canina y felina con personal especializado.",
+  "Brindamos asesoramiento nutricional y planes de vacunación personalizados.",
+  "Un contacto adicional puedes ir a la pestaña de contactos y dejar tus datos, como nombre, correo,pais,mensaje y telefono"
+];
+function getRelevantContext(question) {
+  return contextChunks.filter(chunk =>
+    question.toLowerCase().split(" ").some(word =>
+      chunk.toLowerCase().includes(word)
+    )
+  ).join("\n\n");
+}
 // Middleware para analizar noel cuerpo de las peticiones JSON
 app.use(bodyParser.json());
 // Middleware para habilitar CORS (permite peticiones desde diferentes dominios)
@@ -107,17 +122,29 @@ app.get("/api/productos", (req, res) => {
 
 app.post("/ollama-prompt", async (req, res) => {
   try {
-    const { prompt } = req.body;
-    if (!prompt) {
-      return res.status(400).json({ error: "Prompt is required" });
+    const { question } = req.body;
+    if (!question) {
+      return res.status(400).json({ error: "Se requiere una pregunta" });
     }
 
-    // Llamada a la API de Ollama (stream: true)
+    const context = getRelevantContext(question);
+
+    const finalPrompt = `
+Eres un asistente para una clínica veterinaria llamada Mundo Animal. Responde solo con base en el siguiente contexto.
+Si la información no está en el contexto, responde: "Lo siento, no tengo información sobre eso."
+
+Contexto:
+${context}
+
+Pregunta: ${question}
+`;
+
+    // Llamada a Ollama como ya la tienes
     const ollamaResponse = await axios.post(
       "http://127.0.0.1:11434/api/generate",
       {
         model: "llama3",
-        prompt: prompt,
+        prompt: finalPrompt,
         stream: true,
       },
       { responseType: "stream" }
@@ -125,14 +152,13 @@ app.post("/ollama-prompt", async (req, res) => {
 
     let result = "";
     ollamaResponse.data.on("data", (chunk) => {
-      // Cada línea es un JSON
       const lines = chunk.toString().split("\n").filter(Boolean);
       for (const line of lines) {
         try {
           const json = JSON.parse(line);
           if (json.response) result += json.response;
         } catch (e) {
-          // Ignorar líneas que no sean JSON válidos
+          // ignorar líneas mal formateadas
         }
       }
     });
@@ -144,10 +170,12 @@ app.post("/ollama-prompt", async (req, res) => {
     ollamaResponse.data.on("error", (err) => {
       res.status(500).json({ error: err.message });
     });
+
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
+
 
 
 app.get("/", (req, res) => {
